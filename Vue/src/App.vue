@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <form action="">
+      <input type="text" name="search" id="searchInput" placeholder="Search..." v-model="query">
+      <button >SEARCH</button>
+    </form>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  data(){
+    return{
+      query: "",
+    }
+  },
   components: {
-    HelloWorld
   }
 }
 </script>
