@@ -1,7 +1,14 @@
 <template>
   <div id="app">
     <form action="">
-      <input type="text" name="search" id="searchInput" placeholder="Search..." v-model="query">
+      <label for="Type">Type: </label>
+      <select name="Type" >
+        <option value="all">ALl</option>
+        <option value="actor">Actors</option>
+        <option value="movie">Movies</option>
+        <option value="tv">TV Shows</option>
+      </select>
+      <input type="text" name="search" id="searchInput" placeholder="Search..." v-model="query.text">
       <button >SEARCH</button>
     </form>
   </div>
@@ -13,7 +20,10 @@ export default {
   name: 'App',
   data(){
     return{
-      query: "",
+      query: {
+        text: "",
+
+      },
     }
   },
   components: {
