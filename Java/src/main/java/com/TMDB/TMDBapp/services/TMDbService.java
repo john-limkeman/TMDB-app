@@ -4,6 +4,8 @@ import com.TMDB.TMDBapp.models.Actor;
 import com.TMDB.TMDBapp.models.Movie;
 import com.TMDB.TMDBapp.models.SearchResult;
 import com.TMDB.TMDBapp.models.TVShow;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -22,9 +24,11 @@ public class TMDbService {
     }
 
     //conduct multi-search
-    public SearchResult[] multiSearch(String query){
+    public ResponseEntity<String> multiSearch(String query){
 
-        return rest.getForObject(BASE_URL + "/search/multi?api_key=" + API_KEY + REQUEST_PARAMETERS + query, SearchResult[].class);
+        ResponseEntity<String> result = rest.getForEntity(BASE_URL + "/search/multi?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+        System.out.println(result.getBody());
+         return result;
     }
 
     //conduct movie search
