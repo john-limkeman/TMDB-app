@@ -19,22 +19,22 @@ public class TMDbService {
     }
 
     //conduct multi-search
-    private SearchResult[] multiSearch(String query){
+    public SearchResult[] multiSearch(String query){
         return rest.getForObject(BASE_URL + "/search/multi?query=" + query, SearchResult[].class);
     }
 
     //conduct movie search
-    private Movie[] movieSearch(String query){
+    public Movie[] movieSearch(String query){
         return rest.getForObject(BASE_URL + "/search/movie?query=" + query, Movie[].class);
     }
 
     //conduct tv show search
-    private TVShow[] tvSearch(String query){
+    public TVShow[] tvSearch(String query){
         return rest.getForObject(BASE_URL + "/search/tv?query=" + query, TVShow[].class);
     }
 
     //conduct actor search
-    private Actor[] actorSearch(String query){
+    public Actor[] actorSearch(String query){
         return rest.getForObject(BASE_URL + "/search/actor?query=" + query, Actor[].class);
     }
 }
