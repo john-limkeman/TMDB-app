@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class TMDbController {
 
-    @Autowired
-    private Environment env;
 
 
     public final String BASE_URL = "https://api.themoviedb.org/3";
-    private final String API_KEY = env.getProperty("TMDB_APP_API_KEY"); // need to hide key
+    private final String API_KEY = ""; // need to hide key
 
     TMDbService tmDbService = new TMDbService(BASE_URL, API_KEY);
 
@@ -30,22 +28,22 @@ public class TMDbController {
         return tmDbService.multiSearch(query);
     }
 
-    //MOVIE SEARCH
-    @RequestMapping(path="/search/movie/{query}", method = RequestMethod.GET)
-    public Movie[] movieSearch(@PathVariable String query){
-        return tmDbService.movieSearch(query);
-    }
-
-    //TV SEARCH
-    @RequestMapping(path="/search/tv/{query}", method = RequestMethod.GET)
-    public TVShow[] tvSearch(@PathVariable String query){
-        return tmDbService.tvSearch(query);
-    }
-
-    //ACTOR SEARCH
-    @RequestMapping(path="/search/actor/{query}", method = RequestMethod.GET)
-    public Actor[] actorSearch(@PathVariable String query){
-        return tmDbService.actorSearch(query);
-    }
+//    //MOVIE SEARCH
+//    @RequestMapping(path="/search/movie/{query}", method = RequestMethod.GET)
+//    public ResponseEntity<String> movieSearch(@PathVariable String query){
+//        return tmDbService.movieSearch(query);
+//    }
+//
+//    //TV SEARCH
+//    @RequestMapping(path="/search/tv/{query}", method = RequestMethod.GET)
+//    public ResponseEntity<String> tvSearch(@PathVariable String query){
+//        return tmDbService.tvSearch(query);
+//    }
+//
+//    //ACTOR SEARCH
+//    @RequestMapping(path="/search/actor/{query}", method = RequestMethod.GET)
+//    public ResponseEntity<String> actorSearch(@PathVariable String query){
+//        return tmDbService.actorSearch(query);
+//    }
 
 }

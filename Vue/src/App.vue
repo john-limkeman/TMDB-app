@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+    <h1>TMDb</h1>
     <form @submit.prevent="conductSearch(query)">
-      <label for="Type">Type: </label>
       <select name="Type" v-model="query.type">
         <option value="all">ALL</option>
         <option value="actor">Actors</option>
@@ -33,19 +33,19 @@ export default {
       if(this.query.type === "all"){
 
         SearchService.multiSearch(query).then(response => {
-          this.results = response.data;
+          this.results = response.data.results;
         })
       } else if(this.query.type === "movie"){
         SearchService.movieSearch(query).then(response => {
-          this.results = response.data;
+          this.results = response.data.results;
         })
       } else if (this.query.type === "tv"){
         SearchService.tvSearch(query).then(response =>{
-          this.results = response.data;
+          this.results = response.data.results;
         })
       } else {
         SearchService.actorSearch(query).then(response => {
-          this.results = response.data;
+          this.results = response.data.results;
         })
       }
       console.log(this.results)

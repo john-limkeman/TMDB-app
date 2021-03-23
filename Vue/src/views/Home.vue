@@ -1,6 +1,6 @@
 <template>
   <div>
-      home
+      Use the Search Bar to find movies!
   </div>
 </template>
 
