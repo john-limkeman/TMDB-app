@@ -33,19 +33,19 @@ export default {
       if(this.query.type === "all"){
 
         SearchService.multiSearch(query).then(response => {
-          this.results = response.data.results;
+          this.results = response.data;
         })
       } else if(this.query.type === "movie"){
         SearchService.movieSearch(query).then(response => {
-          this.results = response.data.results;
+          this.results = response.data;
         })
       } else if (this.query.type === "tv"){
         SearchService.tvSearch(query).then(response =>{
-          this.results = response.data.results;
+          this.results = response.data;
         })
       } else {
         SearchService.actorSearch(query).then(response => {
-          this.results = response.data.results;
+          this.results = response.data;
         })
       }
       console.log(this.results)
