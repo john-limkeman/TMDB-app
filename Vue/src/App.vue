@@ -29,6 +29,7 @@ export default {
   },
   methods: {
     conductSearch(query){
+      console.log(query)
       if(this.query.type === "all"){
 
         SearchService.multiSearch(query).then(response => {
