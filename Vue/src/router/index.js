@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import ResultListing from '../views/ResultListing.vue'
+import ResultsPreview from '../views/ResultsPreview.vue'
 
 Vue.use(VueRouter)
 
@@ -12,10 +12,11 @@ const routes = [
     component: Home
   },
   {
-    path: '/results',
-    name: 'ResultListing',
-    component: ResultListing
+    path: '/results/:text/:page',
+    name: 'ResultsPreview',
+    component: ResultsPreview
   },
+  
 ]
 
 const router = new VueRouter({

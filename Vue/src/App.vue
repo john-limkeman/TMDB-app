@@ -3,16 +3,16 @@
     <div @click="goHome()" class="homeBtn">
     <h1>TMDb</h1>
     </div>
-    <form @submit.prevent="conductSearch(query)">
+    <!-- <form @submit.prevent="conductSearch(query)"> -->
       <!-- <select name="Type" v-model="query.type">
         <option value="all">ALL</option>
         <option value="actor">Actors</option>
         <option value="movie">Movies</option>
         <option value="tv">TV Shows</option>
       </select> -->
-      <input type="text" name="search" id="searchInput" placeholder="Search..." v-model="query.text">
+      <!-- <input type="text" name="search" id="searchInput" placeholder="Search..." v-model="query.text">
       <button >SEARCH</button>
-    </form>
+    </form> -->
     <button @click="doTest()">TEST</button>
   <router-view>
 
@@ -31,17 +31,16 @@ export default {
         page: 1
       },
       results : [],
-      test: []
     }
   },
   methods: {
-    conductSearch(query){
-      console.log(query)
-      // if(this.query.type === "all"){
+    // conductSearch(query){
+    //   console.log(query)
+    //   // if(this.query.type === "all"){
 
-        SearchService.multiSearch(query).then(response => {
-          this.results = response.data;
-        })
+    //     SearchService.multiSearch(query).then(response => {
+    //       this.results = response.data;
+    //     })
       // } else if(this.query.type === "movie"){
       //   SearchService.movieSearch(query).then(response => {
       //     this.results = response.data;
@@ -55,10 +54,14 @@ export default {
       //     this.results = response.data;
       //   })
       // }
-      this.$store.dispatch('updateResults', this.results)
-      console.log(this.results)
-      this.$router.push('/results');
-    },
+      // this.$store.dispatch('updateResults', this.results)
+      // console.log(this.results)
+      // if(this.$store.getters.getResults != null){
+      //   this.$router.push('/results');
+      // } else{
+      //   console.log("try again")
+      // }
+    // },
     doTest(){
       SearchService.actorTest().then(response => {
         this.test = response.data;

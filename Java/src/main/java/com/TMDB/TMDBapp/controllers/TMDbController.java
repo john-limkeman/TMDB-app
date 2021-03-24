@@ -38,22 +38,22 @@ public class TMDbController {
         return tmDbService.multiSearch(query);
     }
 
-//    //MOVIE SEARCH
-//    @RequestMapping(path="/search/movie/{query}", method = RequestMethod.GET)
-//    public String movieSearch(@PathVariable String query){
-//        return tmDbService.movieSearch(query);
-//    }
-//
-//    //TV SEARCH
-//    @RequestMapping(path="/search/tv/{query}", method = RequestMethod.GET)
-//    public String tvSearch(@PathVariable String query){
-//        return tmDbService.tvSearch(query);
-//    }
-//
-//    //ACTOR SEARCH
-//    @RequestMapping(path="/search/actor/{query}", method = RequestMethod.GET)
-//    public String actorSearch(@PathVariable String query){
-//        return tmDbService.actorSearch(query);
-//    }
+    //MOVIE SEARCH
+    @RequestMapping(path="/search/movie/{query}", method = RequestMethod.GET)
+    public String movieSearch(@PathVariable String query){
+        return tmDbService.movieSearch(query);
+    }
+
+    //TV SEARCH
+    @RequestMapping(path="/search/tv/{query}", method = RequestMethod.GET)
+    public String tvSearch(@PathVariable String query){
+        return tmDbService.tvSearch(query);
+    }
+
+    //ACTOR SEARCH
+    @RequestMapping(path="/search/actor/{query}", method = RequestMethod.GET)
+    public String actorSearch(@PathVariable String query){
+        return tmDbService.actorSearch(query);
+    }
 
 }

@@ -2,41 +2,30 @@
   <div>
 <h4>Results</h4>
 <h6 @click="goHome()" class="BackBtn">(Go Back)</h6>
-<select name="typeToggle" id="" @change="toggleType()" v-model=chosenType>
-    <option value="all">All</option>
-    <option value="movie">Movies</option>
-    <option value="tv">TV Shows</option>
-    <option value="person">People</option>
 
-</select>
-<div v-if="(showMovies || showAll) && allMovies.length > 0" class="movieListing">
-<h3>Movies:</h3>
-  <div v-for="item in allMovies" v-bind:key="item.id" class="listing">
-    <MovieCard v-bind:result="item"/>
+<div class="PreviewContainer">
+<div v-if="allMovies.length > 0" class="preview" @click="toggleType('movie')">
+<h3>Movies</h3>
+<img v-bind:src="generateImageURL(allMovies[0].poster_path)" alt="image unavailable">
   </div>
 
-</div>
-<div v-if="(showTV || showAll) && allTVShows.length > 0" class="tvListing">
-  <h3>TV Shows:</h3>
-  <div v-for="item in allTVShows" v-bind:key="item.id" class="listing">
-    <TVCard v-bind:result="item"/>
+
+<div v-if="allTVShows.length > 0" class="preview" @click="toggleType('tv')">
+<h3>TV Shows</h3>
+<img v-bind:src="generateImageURL(allTVShows[0].poster_path)" alt="image unavailable">
   </div>
 
-</div>
-<div v-if="(showPeople || showAll) && allPeople.length > 0" class="peopleListing">
-  <h3>People:</h3>
-  <div v-for="item in allPeople" v-bind:key="item.id" class="listing">
-    <PeopleCard v-bind:result="item"/>
+<div v-if="allPeople.length > 0" class="preview" @click="toggleType('person')">
+<h3>People</h3>
+<img v-bind:src="generateImageURL(allPeople[0].profile_path)" alt="image unavailable">
   </div>
-
 </div>
+
   </div>
 </template>
 
 <script>
-import MovieCard from '../components/MovieCard.vue'
-import TVCard from '../components/TVCard.vue'
-import PeopleCard from '../components/PeopleCard.vue'
+
 export default {
   data(){
 
@@ -63,7 +52,12 @@ export default {
         } else {
           this.showAll = true;
         }
+        
       },
+       generateImageURL(url){
+      let result = "http://image.tmdb.org/t/p/" + "w185" + url;
+      return result;
+    },
     goHome(){
       this.$router.push("/");
     }
@@ -93,9 +87,6 @@ export default {
     }
   },
   components: {
-    MovieCard,
-    TVCard,
-    PeopleCard
   },
   created(){
   
@@ -108,11 +99,16 @@ export default {
 
 .movieListing, .tvListing, .peopleListing{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 .BackBtn:hover{
   cursor: pointer;
+}
+img{
+    height: 350px;
+    width: 230px;
 }
 
 </style>
