@@ -12,6 +12,9 @@
       <button >SEARCH</button>
     </form>
     <button @click="doTest()">TEST</button>
+  <router-view>
+
+  </router-view>
   </div>
 </template>
 
@@ -23,7 +26,7 @@ export default {
     return{
       query: {
         text: "",
-        // type: "all"
+        page: 1
       },
       results : [],
       test: []
@@ -50,7 +53,9 @@ export default {
       //     this.results = response.data;
       //   })
       // }
+      this.$store.dispatch('updateResults', this.results)
       console.log(this.results)
+      this.$router.push('/results');
     },
     doTest(){
       SearchService.actorTest().then(response => {

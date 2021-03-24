@@ -1,7 +1,7 @@
 <template>
   <div>
     <img v-bind:src="generateImageURL(result.poster_path)" alt="">
-    <h3>{{result.title}}</h3>
+    <h3>{{result.name}}</h3>
   </div>
 </template>
 
