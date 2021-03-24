@@ -25,28 +25,28 @@ public class TMDbService {
     }
 
     //conduct multi-search
-    public ResponseEntity multiSearch(String query){
+    public String multiSearch(String query){
 
-      ResponseEntity response = rest.getForEntity(BASE_URL + "/search/multi?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
-      System.out.println(response.getBody());
+      String response = rest.getForObject(BASE_URL + "/search/multi?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+      System.out.println(response);
       return response;
     }
 
-    //conduct movie search
-    public ResponseEntity<String> movieSearch(String query){
-        ResponseEntity response = rest.getForEntity(BASE_URL + "/search/movie?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
-        System.out.println(response);
-        return response;    }
-
-    //conduct tv show search
-    public ResponseEntity<String> tvSearch(String query){
-        ResponseEntity response = rest.getForEntity(BASE_URL + "/search/tv?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
-        System.out.println(response);
-        return response;    }
-
-    //conduct actor search
-    public ResponseEntity<String> actorSearch(String query){
-        ResponseEntity response = rest.getForEntity(BASE_URL + "/search/person?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
-        System.out.println(response);
-        return response;   }
+//    //conduct movie search
+//    public String movieSearch(String query){
+//        String response = rest.getForObject(BASE_URL + "/search/movie?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+//        System.out.println(response);
+//        return response;    }
+//
+//    //conduct tv show search
+//    public String tvSearch(String query){
+//        String response = rest.getForObject(BASE_URL + "/search/tv?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+//        System.out.println(response);
+//        return response;    }
+//
+//    //conduct actor search
+//    public String actorSearch(String query){
+//        String response = rest.getForObject(BASE_URL + "/search/person?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+//        System.out.println(response);
+//        return response;   }
 }

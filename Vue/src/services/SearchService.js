@@ -14,5 +14,8 @@ export default{
     },
     actorSearch(query){
         return http.get(`/search/actor/${query.text}`)
+    },
+    actorTest(){
+        return http.get('/test');
     }
 }
