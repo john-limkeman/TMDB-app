@@ -8,19 +8,19 @@
 
 </select>
 <div v-if="showMovies" class="movieListing">
-  <div v-for="item in allMovies" v-bind:key="item.id" >
+  <div v-for="item in allMovies" v-bind:key="item.id" class="listing">
     <MovieCard v-bind:result="item"/>
   </div>
 
 </div>
 <div v-if="showTV" class="tvListing">
-  <div v-for="item in allTVShows" v-bind:key="item.id" >
+  <div v-for="item in allTVShows" v-bind:key="item.id" class="listing">
     <TVCard v-bind:result="item"/>
   </div>
 
 </div>
 <div v-if="showPeople" class="peopleListing">
-  <div v-for="item in allPeople" v-bind:key="item.id" >
+  <div v-for="item in allPeople" v-bind:key="item.id" class="listing">
     <PeopleCard v-bind:result="item"/>
   </div>
 
@@ -96,5 +96,12 @@ export default {
 </script>
 
 <style scoped>
+
+.movieListing, .tvListing, .peopleListing{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 
 </style>

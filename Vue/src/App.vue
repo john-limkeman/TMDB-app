@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <div @click="goHome()" class="homeBtn">
     <h1>TMDb</h1>
+    </div>
     <form @submit.prevent="conductSearch(query)">
       <!-- <select name="Type" v-model="query.type">
         <option value="all">ALL</option>
@@ -63,6 +65,9 @@ export default {
       })
       console.log("TESTING: ")
       console.log(this.test);
+    },
+    goHome(){
+      this.$router.push("/");
     }
   },
   components: {
@@ -78,5 +83,25 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
 }
+.resultCard{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
+
+  .resultCard img{
+    height: 350px;
+    width: 230px;
+  }
+
+  .resultCard h3{
+    width: 230px;
+  }
+
+  .homeBtn:hover{
+    cursor: pointer;
+  }
 </style>
