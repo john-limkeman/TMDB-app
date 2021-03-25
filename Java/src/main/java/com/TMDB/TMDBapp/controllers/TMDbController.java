@@ -17,7 +17,7 @@ public class TMDbController {
 
 
     public final String BASE_URL = "https://api.themoviedb.org/3";
-    private final String API_KEY = "917369bb118862e487faedc2fa6bf48d"; // need to hide key
+    private final String API_KEY = ""; // need to hide key
 
     TMDbService tmDbService = new TMDbService(BASE_URL, API_KEY);
 
