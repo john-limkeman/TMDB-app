@@ -1,18 +1,10 @@
 package com.TMDB.TMDBapp.services;
 
-import com.TMDB.TMDBapp.models.Actor;
-import com.TMDB.TMDBapp.models.Movie;
-import com.TMDB.TMDBapp.models.SearchResult;
-import com.TMDB.TMDBapp.models.TVShow;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 
 public class TMDbService {
 
-    //API KEY is passed in as part of the BASE_URL
 
     private final String BASE_URL;
     private String API_KEY;
@@ -25,18 +17,18 @@ public class TMDbService {
     }
 
     //conduct multi-search
-    public String multiSearch(String query){
-
-      String response = rest.getForObject(BASE_URL + "/search/multi?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+    public String multiSearch(String text, String page){
+      String response = rest.getForObject(BASE_URL + "/search/multi?api_key=" + API_KEY + REQUEST_PARAMETERS + text +"&page=" + page , String.class);
       System.out.println(response);
       return response;
     }
 
     //conduct movie search
-    public String movieSearch(String text, int page){
+    public String movieSearch(String text, String page){
         String response = rest.getForObject(BASE_URL + "/search/movie?api_key=" + API_KEY + REQUEST_PARAMETERS + text + "&page=" + page, String.class);
-        System.out.println(response);
-        return response;    }
+        System.out.println("FETCHED TMBd API DATA: " + response);
+        return response;
+    }
 
     //conduct tv show search
     public String tvSearch(String query){

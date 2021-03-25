@@ -3,8 +3,8 @@ import axios from 'axios';
 const http = axios.create({ baseURL: 'http://localhost:8080' })
 
 export default{
-    multiSearch(query){
-        return http.get(`/search/multi/${query.text}`)
+    multiSearch(text, page){
+        return http.get(`/search/multi/${text}/${page}`)
     },
     movieSearch(text, page){
         return http.get(`/search/movie/${text}/${page}`)

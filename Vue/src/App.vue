@@ -3,16 +3,7 @@
     <div @click="goHome()" class="homeBtn">
     <h1>TMDb</h1>
     </div>
-    <!-- <form @submit.prevent="conductSearch(query)"> -->
-      <!-- <select name="Type" v-model="query.type">
-        <option value="all">ALL</option>
-        <option value="actor">Actors</option>
-        <option value="movie">Movies</option>
-        <option value="tv">TV Shows</option>
-      </select> -->
-      <!-- <input type="text" name="search" id="searchInput" placeholder="Search..." v-model="query.text">
-      <button >SEARCH</button>
-    </form> -->
+
     <button @click="doTest()">TEST</button>
   <router-view>
 
