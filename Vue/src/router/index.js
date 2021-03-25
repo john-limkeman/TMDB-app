@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import ResultsPreview from '../views/ResultsPreview.vue'
+import ResultListing from '../views/ResultListing.vue'
 
 Vue.use(VueRouter)
 
@@ -13,8 +13,8 @@ const routes = [
   },
   {
     path: '/results/:text/:page',
-    name: 'ResultsPreview',
-    component: ResultsPreview
+    name: 'ResultListing',
+    component: ResultListing
   },
   
 ]

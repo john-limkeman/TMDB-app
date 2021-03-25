@@ -20,7 +20,7 @@ public class TMDbController {
 
 
     public final String BASE_URL = "https://api.themoviedb.org/3";
-    private final String API_KEY = ""; // need to hide key
+    private final String API_KEY = "917369bb118862e487faedc2fa6bf48d"; // need to hide key
 
     TMDbService tmDbService = new TMDbService(BASE_URL, API_KEY);
 
@@ -33,26 +33,31 @@ public class TMDbController {
 
 
     //MULTI SEARCH
+    @CrossOrigin
     @RequestMapping(path="/search/multi/{query}", method = RequestMethod.GET)
     public String multiSearch(@PathVariable String query){
         return tmDbService.multiSearch(query);
     }
 
     //MOVIE SEARCH
-    @RequestMapping(path="/search/movie/{query}", method = RequestMethod.GET)
-    public String movieSearch(@PathVariable String query){
-        return tmDbService.movieSearch(query);
+    @CrossOrigin
+    @RequestMapping(path="/search/movie/{text}/{page}", method = RequestMethod.GET)
+    public String movieSearch(@PathVariable String text, @PathVariable int page){
+
+        return tmDbService.movieSearch(text, page);
     }
 
     //TV SEARCH
     @RequestMapping(path="/search/tv/{query}", method = RequestMethod.GET)
     public String tvSearch(@PathVariable String query){
+
         return tmDbService.tvSearch(query);
     }
 
     //ACTOR SEARCH
     @RequestMapping(path="/search/actor/{query}", method = RequestMethod.GET)
     public String actorSearch(@PathVariable String query){
+
         return tmDbService.actorSearch(query);
     }
 

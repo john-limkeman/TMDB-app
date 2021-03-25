@@ -33,8 +33,8 @@ public class TMDbService {
     }
 
     //conduct movie search
-    public String movieSearch(String query){
-        String response = rest.getForObject(BASE_URL + "/search/movie?api_key=" + API_KEY + REQUEST_PARAMETERS + query, String.class);
+    public String movieSearch(String text, int page){
+        String response = rest.getForObject(BASE_URL + "/search/movie?api_key=" + API_KEY + REQUEST_PARAMETERS + text + "&page=" + page, String.class);
         System.out.println(response);
         return response;    }
 

@@ -9,22 +9,22 @@
     <option value="person">People</option>
 
 </select>
+<h3>Movies</h3> <br/>
 <div v-if="(showMovies || showAll) && allMovies.length > 0" class="movieListing">
-<h3>Movies:</h3>
   <div v-for="item in allMovies" v-bind:key="item.id" class="listing">
     <MovieCard v-bind:result="item"/>
   </div>
 
 </div>
+  <h3>TV Shows</h3> <br/>
 <div v-if="(showTV || showAll) && allTVShows.length > 0" class="tvListing">
-  <h3>TV Shows:</h3>
   <div v-for="item in allTVShows" v-bind:key="item.id" class="listing">
     <TVCard v-bind:result="item"/>
   </div>
 
 </div>
+  <h3>People</h3>  <br/>
 <div v-if="(showPeople || showAll) && allPeople.length > 0" class="peopleListing">
-  <h3>People:</h3>
   <div v-for="item in allPeople" v-bind:key="item.id" class="listing">
     <PeopleCard v-bind:result="item"/>
   </div>
@@ -37,6 +37,7 @@
 import MovieCard from '../components/MovieCard.vue'
 import TVCard from '../components/TVCard.vue'
 import PeopleCard from '../components/PeopleCard.vue'
+import SearchService from '../services/SearchService'
 export default {
   data(){
 
@@ -56,6 +57,12 @@ export default {
           this.showAll = false;
         if(this.chosenType == "movie"){
           this.showMovies = true;
+          let results;
+          SearchService.movieSearch(this.$route.params.text).then(response => {
+            results = response.data;
+          })
+          this.$store.dispatch('updateResults', results);
+          console.log(results);
         } else if (this.chosenType == "tv"){
           this.showTV = true;
         } else if (this.chosenType == "person"){
@@ -115,4 +122,11 @@ export default {
   cursor: pointer;
 }
 
+h3{
+  width: 100%;
+  background-color: navy;
+  color: white;
+  font-weight:bold;
+
+}
 </style>

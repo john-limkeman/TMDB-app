@@ -35,7 +35,7 @@ methods: {
          this.$store.dispatch('updateResults', this.results)
       console.log(this.results)
     if(this.$store.getters.getResults != null){
-        this.$router.push({ name: 'ResultsPreview', params: {text: query.text, page: query.page }});
+        this.$router.push({ name: 'ResultListing', params: {text: query.text, page: query.page }});
       } else{
         console.log("try again")
       }

@@ -6,8 +6,8 @@ export default{
     multiSearch(query){
         return http.get(`/search/multi/${query.text}`)
     },
-    movieSearch(query){
-        return http.get(`/search/movie/${query.text}`)
+    movieSearch(text, page){
+        return http.get(`/search/movie/${text}/${page}`)
     }, 
     tvSearch(query){
         return http.get(`/search/tv/${query.text}`)

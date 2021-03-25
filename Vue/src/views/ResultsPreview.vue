@@ -2,8 +2,16 @@
   <div>
 <h4>Results</h4>
 <h6 @click="goHome()" class="BackBtn">(Go Back)</h6>
+<select name="typeToggle" id="" @change="toggleType()" v-model=chosenType>
+    <option value="movie">Movies</option>
+    <option value="tv">TV Shows</option>
+    <option value="person">People</option>
 
-<div class="PreviewContainer">
+</select>
+<div>
+    <h3>Showing: {{chosenType}}</h3>
+</div>
+<!-- <div class="PreviewContainer">
 <div v-if="allMovies.length > 0" class="preview" @click="toggleType('movie')">
 <h3>Movies</h3>
 <img v-bind:src="generateImageURL(allMovies[0].poster_path)" alt="image unavailable">
@@ -19,7 +27,9 @@
 <h3>People</h3>
 <img v-bind:src="generateImageURL(allPeople[0].profile_path)" alt="image unavailable">
   </div>
-</div>
+</div> -->
+
+
 
   </div>
 </template>
@@ -30,11 +40,7 @@ export default {
   data(){
 
     return{
-      showAll: true,
-      showMovies: false,
-      showPeople: false,
-      showTV: false,
-      chosenType: "all",
+      chosenType: "Movies",
     }
   },
   methods:{
